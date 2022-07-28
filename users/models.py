@@ -28,8 +28,8 @@ class User(AbstractUser):
     shoes_size = models.CharField(
         verbose_name="신발 사이즈", choices=SHOES_SIZE_CHOICES, max_length=3, blank=True
     )
-    is_ad_message = models.BooleanField(verbose_name="광고성 메세지 수신동의 여부", default=False)
-    is_ad_email = models.BooleanField(verbose_name="광고성 이메일 수신동의 여부", default=False)
+    is_ad_message = models.BooleanField(verbose_name="광고성 메세지 수신동의", default=False)
+    is_ad_email = models.BooleanField(verbose_name="광고성 이메일 수신동의", default=False)
 
 
 # Create your models here.
