@@ -8,16 +8,13 @@
   </head>
   <body>
     <h1>상품 리스트</h1>
+    {% if page != 1 %}<a href="?page={{page|add:-1}}">[이전 페이지]</a>{% endif %}
+    {{page}} / {{products.paginator.num_pages}}
+    {% if page != products.paginator.num_pages %}<a href="?page={{page|add:1}}">[다음 페이지]</a>{% endif %}
+    
     {% for product in products %}
     <h3>{{product.eng_name}}</h3>
-    <h3>{{product.kor_name}}</h3>
-    <p>{{product.model_number}}</p>
-    <h4>{{product.released}}</h4>
-    <p>{{product.color}}</p>
-    <p>{{product.released_price}}</p>
-
-    {% for product_image in product.photo_set.all %}
-    <img src="{{ product_image.image.url }}" alt="상품 이미지" />
-    {% endfor %} {% endfor %}
+    {% endfor %}
   </body>
 </html>
+
