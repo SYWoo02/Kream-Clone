@@ -14,7 +14,7 @@
 
     {% if page_obj.has_previous %}<a href="?page={{page_obj.number|add:-1}}">[이전 페이지]</a>{% endif %}
     {{page_obj.number}} / {{page_obj.paginator.num_pages}}
-    {% if page_obj.number != products.paginator.num_pages %}<a href="?page={{page_obj.number|add:1}}"> [다음 페이지]</a>{% endif %}
+    {% if page_obj.has_next %}<a href="?page={{page_obj.number|add:1}}"> [다음 페이지]</a>{% endif %}
     
     {% for product in products %}
     <h3>{{product.eng_name}}</h3>
