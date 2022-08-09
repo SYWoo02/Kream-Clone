@@ -1,27 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h2>{{now}}</h2>
-    <h1>상품 리스트</h1>
-    {% comment "현재 페이지" %}{{page_obj.number}}{% endcomment %}
-    {% comment "마지막 페이지" %}{{page_obj.paginator.num_pages}}{% endcomment %}
+{% extends 'base.html' %}
 
-    {% if page_obj.has_previous %}<a href="?page={{page_obj.number|add:-1}}">[이전 페이지]</a>{% endif %}
-    {{page_obj.number}} / {{page_obj.paginator.num_pages}}
-    {% if page_obj.has_next %}<a href="?page={{page_obj.number|add:1}}"> [다음 페이지]</a>{% endif %}
-    
-    {% for product in products %}
-    <h3>{{product.eng_name}}</h3>
-    {% endfor %}
+{% block contents %}
+<h2>{{now}}</h2>
+<h1>상품 리스트</h1>
+{% comment "현재 페이지" %}{{page_obj.number}}{% endcomment %}
+{% comment "마지막 페이지" %}{{page_obj.paginator.num_pages}}{% endcomment %}
 
-    <p>@KREAM Crop.</p>
-    <p>{{Chloe}}</p>
-  </body>
-</html>
+{% if page_obj.has_previous %}<a href="?page={{page_obj.previous_page_number}}">[이전 페이지]</a>{% endif %}
+{{page_obj.number}} / {{page_obj.paginator.num_pages}}
+{% if page_obj.has_next %}<a href="?page={{page_obj.next_page_number}}"> [다음 페이지]</a>{% endif %}
 
+{% for product in products %}
+<li><a href="{% url 'products:상세페이지' product.pk %}">{{product.eng_name}}</a></li>
+{% endfor %}
+<p>{{Chloe}}</p>
+{% endblock contents %}

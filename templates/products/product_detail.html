@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title%}상세페이지 | KREAM{% endblock title%}
+
+{% block contents %}
+<h1>상세페이지</h1>
+<h2>{{now}}</h2>
+<h3>{{product.eng_name}}</h3>
+<h3>{{product.kor_name}}</h3>
+<p>{{product.model_number}}</p>
+<p>{{product.released}}</p>
+<p>{{product.color}}</p>
+<p>{{product.released_price}}</p>
+{% for product_image in product.photo_set.all %}
+    <img src="{{product_image.image.url}}" alt="{{product.eng_name}}" />
+{% endfor %}
+{% endblock contents %}
