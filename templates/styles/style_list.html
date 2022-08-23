@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title%}STYLE | KREAM{% endblock title%}
+
+{% block contents %}
+<h2>스타일 리스트</h2>
+
+{% for style in styles %}
+<p>사용자 이름: {{style.user}}</p>
+
+{% comment "" %}유저가 포스트한 스타일사진 (일단 1장만){% endcomment %}
+<a href="{% url 'styles:detail' style.pk %}">
+{% for style in style.photo_set.all %}
+<img src="{{style.image.url}}" alt="{{style.users}}">
+{% endfor %}</a> 
+
+{% comment "" %}
+유저가 포스트한 스타일사진 (첫 번째 사진만)
+<a href="{% url 'styles:detail' %}">
+<img src="{{style.photo_set.first.image.url}}" alt="{{style.users}}">
+</a>
+{% endcomment %}
+
+<p>{{style.comment}}</p>
+{% endfor %}
+
+<h3>{{now}}</h3>
+
+{% endblock contents %}

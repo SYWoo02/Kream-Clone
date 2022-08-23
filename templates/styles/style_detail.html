@@ -3,5 +3,22 @@
 {% block title%}STYLE | KREAM{% endblock title%}
 
 {% block contents %}
-<h1>상세페이지</h1>
-<h2>{{now}}</h2>
+<h2>스타일 디테일</h2>
+
+<p>사용자 이름: {{style.user}}</p>
+ 
+{% comment "" %}유저가 포스트한 스타일{% endcomment %}
+{% for style in style.photo_set.all %}
+<img src="{{style.image.url}}" alt="{{style.users}}">
+{% endfor %}</a> 
+
+{% comment "" %}태그된 상품사진{% endcomment %}
+{% for product in style.products.all %}
+<img src="{{product.photo_set.first.image.url}}" alt="{{product.eng_name}}">
+{% endfor %}</a> 
+<p>상품 태그 수: {{style.count_style}}</p>
+ 
+<p>{{style.comment}}</p>
+
+<h3>{{now}}</h3>
+{% endblock contents %}

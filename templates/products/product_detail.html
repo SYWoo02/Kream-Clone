@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 
-{% block title%}상세페이지 | KREAM{% endblock title%}
+{% block title%}{{product.kor_name}} | KREAM{% endblock title%}
 
 {% block contents %}
-<h1>상세페이지</h1>
-<h2>{{now}}</h2>
 <h3>{{product.eng_name}}</h3>
 <h3>{{product.kor_name}}</h3>
 <p>{{product.model_number}}</p>

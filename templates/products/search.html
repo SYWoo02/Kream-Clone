@@ -1,11 +1,10 @@
-
 {% extends 'base.html' %}
 
 {% block title %}SEARCH{% endblock title %}
 
 {% block contents %}
 
-<h1>검색 페이지</h1>
+<h2>검색 페이지</h2>
 <form method="get" action="">
     {% comment "" %}<input name="keyword" type="text" placeholder="브랜드명, 모델명, 모델번호 등"
     value = {% if keyword %}"{{keyword}}"{% endif %}>
@@ -27,6 +26,7 @@
     {% endcomment %}
     {{form}}
     <button>검색</button>
+    
 </form>
 <ul>
     {% for product in result %}

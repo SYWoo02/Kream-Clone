@@ -22,7 +22,7 @@ class ProductListView(ListView):
     model = Product
     template_name = "products/product_list"
     context_object_name = "products"
-    paginate_by = 13
+    paginate_by = 12
     ordering = ["created"]
     paginate_orphans = 5
 
@@ -58,7 +58,7 @@ def search(request):
     price = request.GET.getlist("price", None)
     brands = request.GET.getlist("brands", None)
     form = forms.SearchForm(request.GET)
-    #q = Q()
+    # q = Q()
     filter_args = {}
     if form.is_valid():
         q = Q()

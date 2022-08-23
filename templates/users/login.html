@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static "css/styles.css"%}">
+
+{% block title %}LOGIN | KREAM{% endblock title %}
+
+{% block contents %}
+    <div class="login_area">
+
+        <div class="login_title">
+            <img src="{%static 'css/images/KREAM2.png' %}" alt="KREAM">
+        </div>
+
+        <div class="login_items">
+        <form method="post" action="{% url 'users:login' %}">
+        {% csrf_token %}
+        {% for field in form %}
+        <p>
+            <div class="login_labels">
+            {{field.label}}:{{field}}
+            </div>
+
+            {% if field.errors %}
+                {% for error in field.errors %}
+                    <span class="login_error">{{error}}</span>
+                {% endfor %}
+            {% endif %}
+        </p>
+        {% endfor %}
+        </div>
+
+        <div class="main_login">
+            <input class="main_login_button" type="submit" value="로그인" width="50">
+            {% comment "" %}<button>로그인</button>{% endcomment %}
+        </div>
+
+        <div class="extra_login">
+            <a href="{% url 'users:signup'%}" class="extra_login_button">이메일 가입</a>
+            <a href="" class="extra_login_button">이메일 찾기</a>
+            <a href="" class="extra_login_button">비밀번호 찾기</a>
+        </div>
+
+        <div class="sns_login">
+            {% comment "" %}<a href="" class="naver_login_button">네이버로 로그인</a>{% endcomment %}
+            <input href="{% url 'users:kakao-login'%}" class="kakao_login_button" type="submit" value="카카오 로그인" width="50">
+        </div>
+
+    </form>
+</div>
+{% endblock contents %}

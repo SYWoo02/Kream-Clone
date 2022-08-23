@@ -1,0 +1,282 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+
+	font-family: -apple-system,BlinkMacSystemFont,Roboto,AppleSDGothicNeo-Regular,NanumBarunGothic,NanumGothic,나눔고딕,Segoe UI,Helveica,Arial,Malgun Gothic,Dotum,sans-serif;
+	color: #222;
+
+
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+    text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------- */
+
+/**
+헤더
+**/
+
+header {
+	position: sticky;
+	top: 0;
+	background-color: white;
+	z-index: 999; /* 헤더의 우선순위 부여 */
+	position: relative;
+}
+
+.top_inner {
+	justify-content: flex-end;
+    padding: 8px 40px;
+    border-bottom: 1px solid lightgray;
+	text-align: right;
+}
+
+.top_item {
+    display: inline;
+    font-size: 12px;
+    margin-right: 20px;
+}
+.top_item:last-child {
+    margin-right: 0;
+}
+
+.main_inner {
+	padding: 0 45px;
+	border-bottom: 1px solid lightgray;
+	text-align: right;
+	position: relative;
+}
+
+.kream_logo {
+	top: 25px;
+	width: 115px;
+	position: absolute;
+}
+.kream_logo img{
+	width: 100%;
+	height: 100%;
+}
+
+.main_items{
+	display: flex;
+	justify-content: flex-end;
+    align-items: center;
+	height: 68px;
+}
+
+.main_item{
+	margin-right: 40px;
+}
+.main_item:last-child {
+    margin-right: 0;
+}
+
+/**
+---------------------------------------------------------------------------------------------
+**/
+
+/**
+풋터
+**/
+
+footer {
+	background-color: gray;
+	padding: 40px 40px;
+}
+
+.footer_title_1{
+	display: flex;
+	justify-content: center;
+	padding-bottom: 10px;
+}
+
+.footer_title_2{
+	display: flex;
+	justify-content: center;
+	padding-bottom: 10px;
+}
+
+.footer_time{
+	display: flex;
+	justify-content: center;
+}
+
+/**
+----------------------------------------------------------------------------------
+**/
+
+/**
+로그인 & 회원가입
+**/
+
+.login_area{
+	text-align: center;
+	font-weight:800;
+	padding:60px 0 160px;
+	margin: 0 auto;
+    width: 400px;
+}
+
+.login_title {
+	margin: auto;
+	width: 250px;
+	height: 56px;
+	padding-bottom: 50px;
+	font-size: 13px;
+}
+.login_title img{
+	width: 100%;
+	height: 100%;
+}
+
+.login_items {
+	display: flex;
+	justify-content: center;
+	font-size: 13px;
+	padding-bottom: 30px;
+}
+
+.login_labels {
+	padding: 14px 0 14px;
+	border-bottom: 1px solid lightgray;
+}
+
+.login_error {
+	color: red;
+}
+
+.main_login{
+	padding-bottom: 30px;
+}
+
+.main_login_button {
+	background-color: black;
+	color: white;
+	font-weight:800;
+	font-size: 16px;
+	width: 400px;
+	height: 52px;
+	border-radius: 12px
+}
+
+.extra_login{
+	display: flex;
+    justify-content: space-evenly;
+	font-size: 13px;
+}
+
+.extra_login_button{
+	margin: 0px 20px;
+	padding: 0px 10px;
+}
+
+.sns_login {
+	padding-top: 30px;
+}
+
+/**.naver_login_button {
+	margin: 0px 0px 8px;
+	border-color: lightgray;
+	border-width: 1px;
+	background-color: white;
+	color: black;
+	font-weight:700;
+	font-size: 16px;
+	width: 400px;
+	height: 52px;
+	border-radius: 12px
+}**/
+.kakao_login_button {
+	border-color: lightgray;
+	border-width: 1px;
+	background-color:#fee102;
+	color: black;
+	font-weight:700;
+	font-size: 16px;
+	width: 400px;
+	height: 52px;
+	border-radius: 12px
+}
+
+/**
+회원가입
+**/
+
+/**
+---------------------------------------------------------------------------------------------
+**/
+
+/**
+SHOP
+**/
+
+.shop_title{
+	display: flex;
+    justify-content: center;
+
+	font-size: 28px;
+	font-weight: 600;
+    border-bottom: 1px solid #ebebeb;
+	padding: 40px 40px 40px;
+
+	position: absolute;
+	position: sticky;
+	top: 0;
+	background-color: white;
+	z-index: 999;
+}
+
+.shop_area{
+	margin: 0 auto;
+    padding: 0px 40px 80px;
+}
+
+/**
+---------------------------------------------------------------------------------------------
+**/
+
+/**
+STYLE
+**/
+

@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
 
+{% block title%}SHOP | KREAM{% endblock title%}
+
 {% block contents %}
-<h2>{{now}}</h2>
-<h1>상품 리스트</h1>
+
+<h1 class="shop_title">SHOP</h1>
 {% comment "현재 페이지" %}{{page_obj.number}}{% endcomment %}
 {% comment "마지막 페이지" %}{{page_obj.paginator.num_pages}}{% endcomment %}
+<div class="shop_area">
+    {% if page_obj.has_previous %}<a href="?page={{page_obj.previous_page_number}}">[이전 페이지]</a>{% endif %}
+    {{page_obj.number}} / {{page_obj.paginator.num_pages}}
+    {% if page_obj.has_next %}<a href="?page={{page_obj.next_page_number}}"> [다음 페이지]</a>{% endif %}
 
-{% if page_obj.has_previous %}<a href="?page={{page_obj.previous_page_number}}">[이전 페이지]</a>{% endif %}
-{{page_obj.number}} / {{page_obj.paginator.num_pages}}
-{% if page_obj.has_next %}<a href="?page={{page_obj.next_page_number}}"> [다음 페이지]</a>{% endif %}
+    {% for product in products %}
+    <li><a href="{% url 'products:상세페이지' product.pk %}">{{product.eng_name}}</a></li>
+    {% endfor %}
+</div>
 
-{% for product in products %}
-<li><a href="{% url 'products:상세페이지' product.pk %}">{{product.eng_name}}</a></li>
-{% endfor %}
-<p>{{Chloe}}</p>
 {% endblock contents %}

@@ -1,3 +1,30 @@
+{% load static %}
+<link rel="stylesheet" href="{% static "css/styles.css"%}">
+
 <header>
-    <h1>KREAM</h1>
+    <div class="top_inner">
+        <ul class="top_items">
+            <a href="" class="top_item">고객센터</a>
+            <a href="" class="top_item">관심상품</a>
+            <a href="" class="top_item">마이페이지</a>
+            {% if user.is_authenticated %} {% comment "" %}로그인 시{% endcomment %}
+                <a href="{% url 'users:logout' %}" class="top_item">로그아웃</a>
+            {% else %}
+                <a href="{% url 'users:login' %}" class="top_item">로그인</a> {% comment "" %}로그아웃 시{% endcomment %}
+            {% endif %}
+        </ul>
+    </div>
+
+    <div class="main_inner">
+        <ul class="kream_logo">
+            <a href=""><img src="{%static 'css/images/KREAM.jpg' %}" alt="KREAM"></a>
+        </ul>
+
+        <ul class="main_items">
+            <a href="{% url 'styles:list' %}" class="main_item">STYLE</a>
+            <a href="{% url 'products:list' %}" class="main_item">SHOP</a>
+            <a href="" class="main_item">ABOUT</a>
+            <a href="{% url 'products:search' %}" class="main_item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M10.25 2a8.25 8.25 0 105.28 14.59l5.69 5.69a.75.75 0 101.06-1.06l-5.69-5.69A8.25 8.25 0 0010.25 2zM3.5 10.25a6.75 6.75 0 1113.5 0 6.75 6.75 0 01-13.5 0z"></path></svg></a>
+        </ul>   
+    </div>
 </header>

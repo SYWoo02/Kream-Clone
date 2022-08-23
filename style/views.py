@@ -1,6 +1,6 @@
 from math import ceil
 
-from .models import Post
+from .models import Post, Photo
 from . import models
 
 # from . import models
@@ -16,7 +16,7 @@ from django.views.generic import ListView, DetailView
 
 class StyleListView(ListView):
     model = Post
-    template_name = "styles/style_list"
+    template_name = "styles/style_list.html"
     context_object_name = "styles"
     paginate_by = 5
     ordering = ["created"]
@@ -33,7 +33,7 @@ def detail(request, pk):
 
     try:
         style = models.Post.objects.get(id=pk)
-        return render(request, "styles/style_detail", {"style": style})
+        return render(request, "styles/style_list.html", {"style": style})
     except models.Post.DoesNotExist:
         return redirect("/styles")
     except Exception:
@@ -42,6 +42,9 @@ def detail(request, pk):
 
 class StyleDetail(DetailView):
     model = Post
+    pk_url_kwarg = "st"
+    template_name = "styles/style_detail.html"
+    context_object_name = "style"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
